@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native';
 import { PlayerContext } from '../playercontext/PlayerContext';
-import firebase from '../firebase';  // Import your firebase configuration
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+import firestore from '../firebase';
 
 const img = require("../assets/img/FONDO1.jpg");
+
 
 const Juego = ({ route, navigation }) => {
   const { players } = React.useContext(PlayerContext);
@@ -11,7 +14,7 @@ const Juego = ({ route, navigation }) => {
   const [currentTurn, setCurrentTurn] = React.useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
   const [enunciadoText, setEnunciadoText] = useState('');
-  const enunciadosRef = firebase.firestore().collection('Enunciados');
+  const enunciadosRef = firestore.collection('Enunciados');
 
   useEffect(() => {
     setCurrentTurn(0);
