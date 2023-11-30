@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native';
 import { PlayerContext } from '../playercontext/PlayerContext';
 import Enunciados from '../Enunciados.json';
+import { Gyroscope, ScreenOrientation } from 'expo';
 
 const img = require('../assets/img/FONDO1.jpg');
 
