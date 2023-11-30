@@ -66,7 +66,7 @@ const Juego = ({ route, navigation }) => {
           onPress={submitVote}
           disabled={!selectedOption}
         >
-          <Text style={{ color: 'white' }}>Submit Vote</Text>
+          <Text style={{ color: 'white' }}>Confirmar Voto</Text>
         </TouchableOpacity>
       </ImageBackground>
     </View>

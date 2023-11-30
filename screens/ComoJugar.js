@@ -28,7 +28,7 @@ export default ComoJugar
 const styles = StyleSheet.create({
     fondo: {
         backgroundColor: '#28262C',
-        padding: 10
+        padding: 10,
     },
     titulo: {
         textAlign: 'center',
