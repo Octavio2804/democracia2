@@ -1,41 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native';
 import { PlayerContext } from '../playercontext/PlayerContext';
-import firebase from 'firebase/app';
-import 'firebase/firestore';
-import firestore from '../firebase';
+import Enunciados from '../Enunciados.json';
 
-const img = require("../assets/img/FONDO1.jpg");
-
+const img = require('../assets/img/FONDO1.jpg');
 
 const Juego = ({ route, navigation }) => {
   const { players } = React.useContext(PlayerContext);
   const [votes, setVotes] = React.useState({});
   const [currentTurn, setCurrentTurn] = React.useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
-  const [enunciadoText, setEnunciadoText] = useState('');
-  const enunciadosRef = firestore.collection('Enunciados');
+  const [enunciado, setEnunciado] = useState({ id: 0, enunciado: '' });
 
   useEffect(() => {
     setCurrentTurn(0);
     setSelectedOption(null);
 
-    enunciadosRef.get()
-      .then(querySnapshot => {
-        const enunciadosArray = [];
-
-        querySnapshot.forEach(doc => {
-          enunciadosArray.push(doc.data().text);
-        });
-
-        if (enunciadosArray.length > 0) {
-          const randomEnunciado = enunciadosArray[Math.floor(Math.random() * enunciadosArray.length)];
-          setEnunciadoText(randomEnunciado);
-        }
-      })
-      .catch(error => {
-        console.error('Error fetching enunciados:', error);
-      });
+    const randomIndex = Math.floor(Math.random() * Enunciados.length);
+    setEnunciado({
+      ...Enunciados[randomIndex],
+      enunciado: Enunciados[randomIndex].enunciado.toUpperCase()
+    });
   }, [route]);
 
   React.useEffect(() => {
@@ -58,9 +43,9 @@ const Juego = ({ route, navigation }) => {
 
   return (
     <View>
-      <ImageBackground source={img} style={styles.fotofondo} resizeMode='cover'>
-        <Text style={styles.enunciado}>Enunciado: {enunciadoText} </Text>
-        <Text style={styles.turno}>Turno actual: {currentTurn + 1}</Text>
+      <ImageBackground source={img} style={styles.fotofondo} resizeMode="cover">
+        <Text style={styles.enunciado}>{enunciado.enunciado}</Text>
+        <Text style={styles.turno}>Voto # {currentTurn + 1}</Text>
         <FlatList
           data={players}
           keyExtractor={(item, index) => index.toString()}
@@ -87,11 +72,13 @@ const Juego = ({ route, navigation }) => {
   );
 };
 
+
 const styles = StyleSheet.create({
   enunciado: {
     color: 'white',
     textAlign: 'center',
     margin: 25,
+    fontSize: 30
   },
   fotofondo: {
     height: '100%',
@@ -126,5 +113,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'green',
   },
 });
+
 
 export default Juego;

@@ -7,7 +7,7 @@ const Resultado = ({ route, navigation }) => {
 
   const winner = Object.keys(votes).reduce((a, b) => (votes[a] > votes[b] ? a : b), '');
 
-  // Check if there's a tie
+
   const isTie = Object.values(votes).filter((count) => count === votes[winner]).length > 1;
 
   useEffect(() => {
@@ -46,12 +46,14 @@ const styles = StyleSheet.create({
     fontSize: 25,
     padding: 10,
     margin: 10,
-    color: "white"
+    color: "white",
+    marginRight: "8%",
   },
   titulo: {
     textAlign: "center",
     fontSize: 30,
     padding: 10,
+    marginRight: "8%",
     marginTop: 40,
     color: "white"
   },

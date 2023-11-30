@@ -30,11 +30,11 @@ const styles = StyleSheet.create({
     height: '80%',
   },
     titulo: {
-      fontSize: 27,
+      fontSize: 30,
       fontWeight: 'bold',
       textAlign: 'center',
       color: 'red',
-      marginTop: 50,
+      marginTop: 60,
       marginBottom: 50,
     },
     subtitulo: {

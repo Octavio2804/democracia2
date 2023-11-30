@@ -17,7 +17,7 @@ import { getAnalytics } from "firebase/analytics";
 
 const Stack = createStackNavigator();
 
-const firebaseConfig = {
+/* const firebaseConfig = {
   apiKey: "AIzaSyCJyZbuWxXou9Aojh9N5l0-ng83fqsvk3k",
   authDomain: "democracia-a45f6.firebaseapp.com",
   projectId: "democracia-a45f6",
@@ -25,7 +25,7 @@ const firebaseConfig = {
   messagingSenderId: "107206939490",
   appId: "1:107206939490:web:5f66ba2fc89866115a523b",
   measurementId: "G-TBJ6HL2TTZ"
-};
+}; */
 
 /* // Initialize Firebase
 const app = initializeApp(firebaseConfig);

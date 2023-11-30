@@ -40,17 +40,17 @@ const Jugadores = ({ navigation }) => {
            </View>
            <Text style={styles.subtitle}>Lista de jugadores:</Text>
            <FlatList
-             data={players}
-             keyExtractor={(item, index) => index.toString()}
-             renderItem={({ item }) => (
-               <View style={styles.playerItem}>
-                 <View style={styles.playerInfo}>
+               data={players}
+                keyExtractor={(item, index) => index.toString()}
+               renderItem={({ item }) => (
+                <View style={styles.playerItem}>
+                  <View style={styles.playerInfo}>
                    <Text style={styles.nombre}>{item}</Text>
-                 </View>
+                  </View>
                  <Button title="Eliminar" color={"red"} onPress={() => handleRemovePlayer(item)} />
-              </View>
-             )}
-           />
+                </View>
+              )}
+            />
          </View>
         </ImageBackground>
 
@@ -115,22 +115,25 @@ const styles = StyleSheet.create({
   },
   playerItem: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 10,
+    justifyContent: 'space-between',
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    backgroundColor: 'transparent',
   },
   playerInfo: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: 'white',
     borderRadius: 1,
+    backgroundColor: 'transparent',
   },
   nombre: {
-    fontSize: 18,
-    borderWidth: 1,
+    fontSize: 20,
     padding: 3,
-    color: 'black',
+    color: 'white',
     fontFamily: 'serif',
+    backfaceVisibility: 'hidden'
   },
   empezar: {
     backgroundColor: "#20A39E",
