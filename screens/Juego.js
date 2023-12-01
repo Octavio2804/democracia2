@@ -2,33 +2,40 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native';
 import { PlayerContext } from '../playercontext/PlayerContext';
 import Enunciados from '../Enunciados.json';
-import { Gyroscope, ScreenOrientation } from 'expo';
 
 const img = require('../assets/img/FONDO1.jpg');
 
 const Juego = ({ route, navigation }) => {
-  const { players } = React.useContext(PlayerContext);
+  const { players, currentRound } = React.useContext(PlayerContext);
   const [votes, setVotes] = React.useState({});
   const [currentTurn, setCurrentTurn] = React.useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
   const [enunciado, setEnunciado] = useState({ id: 0, enunciado: '' });
 
   useEffect(() => {
+    initializeRound();
+  }, [route, currentRound]);
+
+  React.useEffect(() => {
+    if (currentTurn === players.length) {
+      navigateToResultado();
+    }
+  }, [currentTurn, players, navigation, votes, currentRound]);
+
+  const initializeRound = () => {
     setCurrentTurn(0);
     setSelectedOption(null);
-
+    setVotes({}); // Reset votes for a new round
     const randomIndex = Math.floor(Math.random() * Enunciados.length);
     setEnunciado({
       ...Enunciados[randomIndex],
       enunciado: Enunciados[randomIndex].enunciado.toUpperCase()
     });
-  }, [route]);
+  };
 
-  React.useEffect(() => {
-    if (currentTurn === players.length) {
-      navigation.navigate('Resultado', { votes, players });
-    }
-  }, [currentTurn, players, navigation, votes]);
+  const navigateToResultado = () => {
+    navigation.navigate('Resultado', { votes, players, currentRound });
+  };
 
   const handleVote = (player) => {
     setSelectedOption((prevOption) => (prevOption === player ? null : player));
@@ -37,7 +44,7 @@ const Juego = ({ route, navigation }) => {
   const submitVote = () => {
     if (selectedOption) {
       setVotes({ ...votes, [selectedOption]: (votes[selectedOption] || 0) + 1 });
-      setCurrentTurn(currentTurn + 1);
+      setCurrentTurn((prevTurn) => prevTurn + 1);
       setSelectedOption(null);
     }
   };
@@ -72,6 +79,7 @@ const Juego = ({ route, navigation }) => {
     </View>
   );
 };
+
 
 
 const styles = StyleSheet.create({

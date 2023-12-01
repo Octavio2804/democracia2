@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Button, TouchableOpacity, ImageBackground, Image } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, ImageBackground, Image } from 'react-native'
 import React from 'react'
 
 const img = require("../assets/img/FONDO1.jpg")

@@ -1,12 +1,11 @@
 import { useEffect } from 'react';
-import { View, Text, Button, StyleSheet, ImageBackground, TouchableOpacity, Image, Alert } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, Image, Alert } from 'react-native';
 const img = require("../assets/img/FONDO1.jpg");
 
 const Resultado = ({ route, navigation }) => {
-  const { votes, players } = route.params;
+  const { votes, players, currentRound } = route.params;
 
   const winner = Object.keys(votes).reduce((a, b) => (votes[a] > votes[b] ? a : b), '');
-
 
   const isTie = Object.values(votes).filter((count) => count === votes[winner]).length > 1;
 
@@ -14,7 +13,7 @@ const Resultado = ({ route, navigation }) => {
     if (isTie) {
       Alert.alert(
         'Empate',
-        'Acá no hay balotaje, el proximo que elijan toma doble',
+        'Acá no hay balotaje, el próximo que elijan toma doble',
         [{ text: 'OK', onPress: () => navigation.navigate('Juego', { players }) }]
       );
     }
