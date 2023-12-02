@@ -110,5 +110,7 @@
     {"id": 106, "enunciado": "votaria para que vuelvan los milicos"},
     {"id": 107, "enunciado": "Se cambia de club para chamuyar"},
     {"id": 108, "enunciado": "está secretamente enamorad@ de alguien"},
-    {"id": 109, "enunciado": "quien se engancha rápido"}
+    {"id": 109, "enunciado": "quien se engancha rápido"},
+    {"id": 110, "enunciado": "A quien le pedirias un consejo primer@?"},
+    {"id": 111, "enunciado": "Nunca le pedirias un consejo amoroso"}
 ]

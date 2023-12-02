@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, TouchableOpacity, ImageBackground, Image } from 'react-native'
 import React from 'react'
 
-const img = require("../assets/img/FONDO1.jpg")
+const img = require("../assets/img/FondoNegro-Chico.jpg")
 
 export default function Inicio ({navigation}) {
   return (
@@ -10,10 +10,10 @@ export default function Inicio ({navigation}) {
       <Text style={styles.titulo}>DEMOCRACIA</Text>
       <Text style={styles.subtitulo}>El juego que nos recuerda que no siempre es buena idea</Text>
       {/* <Button title='Iniciar' style={styles.boton} /> */}
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Jugadores')}>
+      <TouchableOpacity style={styles.buttonIniciar} onPress={() => navigation.navigate('Jugadores')}>
         <Text style={styles.buttonText}>Iniciar</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Instrucciones')}>
+      <TouchableOpacity style={styles.buttonInstrucciones} onPress={() => navigation.navigate('Instrucciones')}>
         <Text style={styles.buttonText}>Como Jugar</Text>
       </TouchableOpacity>
       <Image source={require('../assets/img/LogoPngBlanco-sinfondo.png')} style={styles.logo}/>
@@ -27,14 +27,14 @@ const styles = StyleSheet.create({
   fotofondo: {
     ...StyleSheet.absoluteFillObject,
     width: '100%', 
-    height: '80%',
+    height: '77%',
   },
     titulo: {
       fontSize: 30,
       fontWeight: 'bold',
       textAlign: 'center',
       color: 'red',
-      marginTop: 60,
+      marginTop: 110,
       marginBottom: 50,
     },
     subtitulo: {
@@ -50,14 +50,20 @@ const styles = StyleSheet.create({
       height: 1500,
       paddingTop: 150,
     },
-    button: {
+    buttonInstrucciones: {
       backgroundColor: '#AD343E',
       padding: 13,
       margin: 10,
       borderRadius: 5,
     },
+    buttonIniciar: {
+      backgroundColor: '#CCCCCC',
+      padding: 13,
+      margin: 10,
+      borderRadius: 5,
+    },
     buttonText: {
-      color: 'white',
+      color: 'black',
       fontSize: 16,
       textAlign: 'center',
     },
