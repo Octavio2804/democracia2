@@ -6,7 +6,7 @@
     {"id": 5, "enunciado": "termina siempre en pedo"},
     {"id": 6, "enunciado": "aparecería en otro continente después de una noche de copas"},
     {"id": 7, "enunciado": "se haría influencer"},
-    {"id": 8, "enunciado": "terminaría preso por una tontería"},
+    {"id": 8, "enunciado": "terminaría preso por una pavada"},
     {"id": 9, "enunciado": "se volveria un dictador"},
     {"id": 10, "enunciado": "saldria con alguien que está preso"},
     {"id": 11, "enunciado": "no se baña "},
@@ -112,5 +112,14 @@
     {"id": 108, "enunciado": "está secretamente enamorad@ de alguien"},
     {"id": 109, "enunciado": "quien se engancha rápido"},
     {"id": 110, "enunciado": "A quien le pedirias un consejo primer@?"},
-    {"id": 111, "enunciado": "Nunca le pedirias un consejo amoroso"}
+    {"id": 111, "enunciado": "Nunca le pedirias un consejo amoroso"},
+    {"id": 112, "enunciado": "Quien cambiaria a su abuela por un tuca?"},
+    {"id": 113, "enunciado": "Hiubiera ayudado a hitler a llegar al poder"},
+    {"id": 114, "enunciado": "Te abandona en el boliche"},
+    {"id": 115, "enunciado": "De 4 anecdotas 1 es es verdad"},
+    {"id": 116, "enunciado": "Le pueden las mayores"},
+    {"id": 117, "enunciado": "se va a casar con alguien que no nació"},
+    {"id": 118, "enunciado": "Vuelve la dictadura, quien es general y quien muere primero?"},
+    {"id": 119, "enunciado": "El que seguro se queda pelado"},
+    {"id": 120, "enunciado": "Es mas probable que quiebre primero"}
 ]
